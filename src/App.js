@@ -6,6 +6,7 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
+    // Initializing state with default person details, show toggle, and elapsed time
     this.state = {
       person: {
         Name: "James Arthur Gosling",
@@ -19,11 +20,13 @@ class App extends Component {
         profession: "Computer Scientist",
       },
       show: false,
-      timeElapsed: 0,
+      timeElapsed: 0, 
     };
 
     this.toggleShow = this.toggleShow.bind(this);
+
   }
+// Sets up a timer that updates the timeElapsed state every second if the profile is shown
 
   componentDidMount() {
     this.timer = setInterval(() => {
@@ -35,11 +38,16 @@ class App extends Component {
     }, 1000);
   }
 
+    // Clears the timer
+
   componentWillUnmount() {
+
     clearInterval(this.timer);
   }
+    // Toggles the show state and resets timeElapsed if hiding the profile
 
   toggleShow() {
+
     this.setState((prevState) => ({
       show: !prevState.show,
       timeElapsed: prevState.show ? 0 : prevState.timeElapsed,  
@@ -52,14 +60,18 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Person Profile</h1>
+
+        {/* Button toggles the visibility of the profile */}
+
         <button onClick={this.toggleShow}>
           {show ? "Hide Profile" : "Show Profile"}
         </button>
 
+        {/* Conditionally render TimerComponent and ProfileComponent if show is true */}
         {show && (
           <>
-            <TimerComponent timeElapsed={timeElapsed} />
-            <ProfileComponent person={person} />
+            <TimerComponent timeElapsed={timeElapsed} /> {/* Displays elapsed time */}
+            <ProfileComponent person={person} /> {/* Displays person details */}
           </>
         )}
       </div>
