@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: blue;
+}
+
+img {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 25%;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+button{
+  background-color: beige;
+  border: groove;
+  border-radius: 15px;
+}
+
+.profile{
+  background-color: darkgray;
+  border-radius: 90px;
+  padding: 20px;
+  margin: 10px;
+}
